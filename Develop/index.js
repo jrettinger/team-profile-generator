@@ -31,3 +31,36 @@ function Select() {
         }
       });
   }
+
+  function InputEngineer() {
+    inquirer
+      .prompt([
+        {
+          name: "name",
+          message: "Please Input Engineer Name",
+        },
+        {
+          name: "ID",
+          message: "Please Input Engineer ID",
+        },
+        {
+          name: "email",
+          message: "Please Input Engineer Email Address",
+        },
+        {
+          name: "github",
+          message: "Please Input Engineer Github Username",
+        },
+      ])
+      .then((engineer) => {
+        const engineerMember = new Engineer(
+          engineer.name,
+          engineer.ID,
+          engineer.email,
+          engineer.github
+        );
+        memberData.push(engineerMember);
+        Select();
+      });
+  }
+  
