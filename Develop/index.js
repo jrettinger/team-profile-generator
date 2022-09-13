@@ -63,4 +63,35 @@ function Select() {
         Select();
       });
   }
-  
+
+  function InputManager() {
+    inquirer
+      .prompt([
+        {
+          name: "name",
+          message: "Please Input Manager Name",
+        },
+        {
+          name: "ID",
+          message: "Please Input Manager ID",
+        },
+        {
+          name: "email",
+          message: "Please Input Manager Email Address",
+        },
+        {
+          name: "office_number",
+          message: "Please Input Manager Office Number",
+        },
+      ])
+      .then((manager) => {
+        const managerMember = new Manager(
+          manager.name,
+          manager.ID,
+          manager.email,
+          manager.office_number
+        );
+        memberData.push(managerMember);
+        Select();
+      });
+  }
