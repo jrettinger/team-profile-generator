@@ -95,3 +95,38 @@ function Select() {
         Select();
       });
   }
+
+  function InputIntern() {
+    inquirer
+      .prompt([
+        {
+          name: "name",
+          message: "Please Input Intern Name",
+        },
+        {
+          name: "ID",
+          message: "Please Input Intern ID",
+        },
+        {
+          name: "email",
+          message: "Please Input Intern Email Address",
+        },
+        {
+          name: "school",
+          message: "Please Input Intern School",
+        },
+      ])
+      .then((intern) => {
+        const internMember = new Intern(
+          intern.name,
+          intern.ID,
+          intern.email,
+          intern.school
+        );
+        memberData.push(internMember);
+        Select();
+      });
+  }
+  
+  InputManager();
+  
